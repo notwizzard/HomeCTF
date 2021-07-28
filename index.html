@@ -1,0 +1,317 @@
+<?php
+    $link = mysqli_connect("localhost", "e950792h_homectf", "Mi-MoRgUn-IvAn-117", "e950792h_homectf");
+    mysqli_set_charset($link, "utf8");
+
+
+    $sql = "SELECT `money` FROM `homeCTF` WHERE `cookie-key`='all'";
+    $result = mysqli_query($link, $sql);
+    $result = mysqli_fetch_array($result);
+
+    $money = $result['money'];
+
+    setcookie("money", $money);
+
+
+    setcookie("xkty", 0);
+
+
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="height=device-height">
+    <title>Карта</title>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+    <link rel="SHORTCUT ICON" href="./assets/ficus-icon.png" type="image/x-icon">
+    <script src="user.js"></script>
+    <script src="./main.js" type="application/javascript"></script>
+</head>
+<body onload="ClickCentrier()">
+    <div class="headBlock">
+        <span><b>CyberWar</b> from <b>11Б</b></span>
+        <span class="money">баланс: <b id="money">0</b><b>$</b></span>
+    </div><br>
+    <div class="otst"></div>
+
+
+    <div class="describe">
+        <span class="describe">Хей, <b>друг</b>, здесь находится наикрутейшая игра, за победу в которой тебя ждут крутые ништяки!
+            Главная задача соревнования - ввести три <b>ключа</b> в специальные поля быстрее других команд.
+            Но не все так просто! Ключи закодированы, и на их расшифровку понадобится много времени,
+            поэтому необходима твоя помощь, <b>пупс</b>. Поднимай баксы, решая интересные задачи <b>(таски)</b>,
+            или же просто развлекайся в <b>кликере</b>) Заработанные монеты трать на <b>бустеры</b>, их можно найти в магазине,
+            это непременно уменьшит время декодирования ключей!<br><br>
+            Наверно, тебе интересно, что за таски придется решать? Ох, <b>дружище</b>, тут долго объяснять, скажу, лишь что
+            в каждом задании необходимо найти <b>флаг</b>, а спрятан он может быть где угодно! Гугли - не стесняйся.
+            Здесь точно придется проявить смекалку и слегка поднапрячь извилины. Думаю, ты справишься!<br><br>
+            Чуть не забыл! Следи за новостями в нашем <b>дискорде</b>, там будут появляться <b>подсказки</b> и свежая информация.<br>
+            Лови <a href="https://discord.gg/mmskWvu">линк</a>!
+        </span>
+    </div>
+
+
+    <div class="centriter">
+        <span class="naming">Ключи</span>
+    </div>
+    <br><br>
+
+    <div class="centriter">
+        <span class="px" id="timer1">3:00:00</span>
+    </div><br>
+    <div class="obramlenie">
+        <span class="decbar white" id="bar1"></span>
+    </div><br><br>
+
+    <div class="centriter">
+        <span class="px" id="timer2">3:00:00</span>
+    </div><br>
+    <div class="obramlenie">
+        <span class="decbar blue" id="bar2"></span>
+    </div><br><br>
+
+    <div class="centriter">
+        <span class="px" id="timer3">3:00:00</span>
+    </div><br>
+    <div class="obramlenie">
+        <span class="decbar red" id="bar3"></span>
+    </div><br><br>
+    <br><br>
+
+
+
+    <div class="centriter">
+        <span class="naming">Задания</span>
+    </div>
+
+    <div class="taskBlock">
+        <div class="taskRaw">
+            <div class="task" onclick="Teleport(1)">
+                <span>Таск 1<br></span>
+                <span class="cost">100$</span>
+
+            </div>
+            <div class="task" onclick="Teleport(2)">
+                <span>Таск 2<br></span>
+                <span class="cost">100$</span>
+
+            </div>
+            <div class="task" onclick="Teleport(3)">
+                <span>Таск 3<br></span>
+                <span class="cost">100$</span>
+            </div>
+            <div class="task" onclick="Teleport(4)">
+                <span>Таск 4<br></span>
+                <span class="cost">100$</span>
+            </div>
+        </div>
+
+
+        <div class="taskRaw">
+            <div class="task" onclick="Teleport(5)">
+                <span>Таск 5<br></span>
+                <span class="cost">200$</span>
+            </div>
+            <div class="task" onclick="Teleport(6)">
+                <span>Таск 6<br></span>
+                <span class="cost">200$</span>
+            </div>
+            <div class="task" onclick="Teleport(7)">
+                <span>Таск 7<br></span>
+                <span class="cost">200$</span>
+            </div>
+            <div class="task" onclick="Teleport(8)">
+                <span>Таск 8<br></span>
+                <span class="cost">200$</span>
+            </div>
+        </div>
+
+        <div class="taskRaw">
+            <div class="task" onclick="Teleport(9)">
+                <span>Таск 9<br></span>
+                <span class="cost">300$</span>
+            </div>
+            <div class="task" onclick="Teleport(10)">
+                <span>Таск 10<br></span>
+                <span class="cost">300$</span>
+            </div>
+            <div class="task" onclick="Teleport(11)">
+                <span>Таск 11<br></span>
+                <span class="cost">300$</span>
+            </div>
+            <div class="task" onclick="Teleport(12)">
+                <span>Таск 12<br></span>
+                <span class="cost">300$</span>
+            </div>
+        </div>
+
+        <div class="taskRaw">
+            <div class="task" onclick="Teleport(13)">
+                <span>Таск 13<br></span>
+                <span class="cost">300$</span>
+            </div>
+            <div class="task" onclick="Teleport(14)">
+                <span>Таск 14<br></span>
+                <span class="cost">300$</span>
+            </div>
+            <div class="task" onclick="Teleport(15)">
+                <span>Таск 15<br></span>
+                <span class="cost">300$</span>
+            </div>
+            <div class="task" onclick="Teleport(16)">
+                <span>Таск 16<br></span>
+                <span class="cost">300$</span>
+            </div>
+        </div>
+
+        <div class="taskRaw">
+            <div class="task" onclick="Teleport(17)">
+                <span>Таск 17<br></span>
+                <span class="cost">400$</span>
+            </div>
+            <div class="task" onclick="Teleport(18)">
+                <span>Таск 18<br></span>
+                <span class="cost">400$</span>
+            </div>
+            <div class="task" onclick="Teleport(19)">
+                <span>Таск 19<br></span>
+                <span class="cost">400$</span>
+            </div>
+            <div class="task" onclick="Teleport(20)" >
+                <span>Таск 20<br></span>
+                <span class="cost">400$</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="centriter">
+        <span class="naming">Кликер</span>
+    </div>
+    <div class="taskBlock">
+        <div id="space" class="space">
+            <div id="click" class="clickBlock" onclick="Clicker()">
+                <span class="clickText">Жмяк</span>
+            </div>
+        </div>
+        <br><br>
+        <div class="underclicker">
+            <span id="sch">Счет: <b id="schet">0</b><br>5 кликов = 1$</span><br><br>
+            <form action="script.php" method="post">
+                <button name="obnal" class="send">обналичить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="centriter">
+        <span class="naming">Магазин бустеров</span>
+    </div>
+
+    <div class="taskBlock">
+        <div class="marketBlock" id="market1" onclick="Market(1)">
+            <span>Ускорить на 5 минут - <b>150$</b></span>
+        </div>
+
+        <div class="marketBlock" id="market2" onclick="Market(2)">
+            <span>Ускорить на 10 минут - <b>280$</b></span>
+        </div>
+
+        <div class="marketBlock" id="market3" onclick="Market(3)">
+            <span>Ускорить на 5% - <b>200$</b></span>
+        </div>
+
+        <div class="marketBlock" id="market4" onclick="Market(4)">
+            <span>Ускорить на 10% - <b>380$</b></span>
+        </div>
+    </div>
+
+    <div class="main" id="acception1">
+        <div class="accept">
+            <br>
+            <span>Декодирование какого ключа ты хочешь забустить?</span>
+            <br><br>
+            <form method="post" action="script.php">
+                <button name="boost1code1" type="submit" class="marketButton">Первый</button>
+                <button name="boost1code2" type="submit" class="marketButton">Второй</button>
+                <button name="boost1code3" type="submit" class="marketButton">Третий</button>
+            </form>
+
+            <br><br>
+        </div>
+    </div>
+
+    <div class="main" id="acception2">
+        <div class="accept">
+            <br>
+            <span>Декодирование какого ключа ты хочешь забустить?</span>
+            <br><br>
+            <form method="post" action="script.php">
+                <button name="boost2code1" type="submit" class="marketButton">Первый</button>
+                <button name="boost2code2" type="submit" class="marketButton">Второй</button>
+                <button name="boost2code3" type="submit" class="marketButton">Третий</button>
+            </form>
+
+            <br><br>
+        </div>
+    </div>
+
+    <div class="main" id="acception3">
+        <div class="accept">
+            <br>
+            <span>Декодирование какого ключа ты хочешь забустить?</span>
+            <br><br>
+            <form method="post" action="script.php">
+                <button name="boost3code1" type="submit" class="marketButton">Первый</button>
+                <button name="boost3code2" type="submit" class="marketButton">Второй</button>
+                <button name="boost3code3" type="submit" class="marketButton">Третий</button>
+            </form>
+
+            <br><br>
+        </div>
+    </div>
+
+    <div class="main" id="acception4">
+        <div class="accept">
+            <br>
+            <span>Декодирование какого ключа ты хочешь забустить?</span>
+            <br><br>
+            <form method="post" action="script.php">
+                <button name="boost4code1" type="submit" class="marketButton">Первый</button>
+                <button name="boost4code2" type="submit" class="marketButton">Второй</button>
+                <button name="boost4code3" type="submit" class="marketButton">Третий</button>
+            </form>
+
+            <br><br>
+        </div>
+    </div>
+
+
+    <div class="centriter">
+        <span class="naming">Ввод ключей</span>
+    </div>
+
+    <div class="taskBlock">
+            <input name="first" class="key" placeholder="первый ключ">
+            <input name="second" class="key" placeholder="второй ключ">
+            <input name="third" class="key" placeholder="третий ключ"><br><br><br><br>
+            <div class="centriter">
+                <button type="submit" name="end" class="send">завершить игру</button>
+            </div>
+    </div>
+
+
+
+    <div class="endBlock">
+        <span class="endText">
+            Голосуй за 11Б - получай плюс 100 к карме!
+        </span>
+    </div>
+
+
+</body>
+</html>
